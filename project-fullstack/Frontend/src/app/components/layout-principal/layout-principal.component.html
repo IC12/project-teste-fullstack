@@ -1,0 +1,24 @@
+<div class="app-container">
+
+    <header class="header">
+      <h1 class="title">CRUD - Clientes e Produtos</h1>
+    </header>
+  
+    <main class="main-content">
+        <div *ngIf="isHomePage" class="button-container">
+            <button class="navigate-button" (click)="goToComponent('clientes')">
+              Ir para Clientes
+            </button>
+            <button class="navigate-button" (click)="goToComponent('produtos')">
+              Ir para Produtos
+            </button>
+          </div>
+      <router-outlet></router-outlet>
+    </main>
+
+    <footer class="footer">
+      <p>Link do repositório do projeto:</p>
+      <a href="https://github.com/ic12/project-teste-fullstack" target="_blank">GitHub - Iara Camargos</a>
+    </footer>
+  </div>
+  
