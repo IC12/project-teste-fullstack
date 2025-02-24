@@ -30,7 +30,11 @@ namespace Backend.Repositories
 
         public void UpdateCliente(Cliente cliente)
         {
-            _context.Clientes.Update(cliente);
+            var existingCliente = _context.Clientes.Find(cliente.Id);
+            if (existingCliente == null)
+                throw new InvalidOperationException("Cliente não encontrado.");
+
+            _context.Entry(existingCliente).CurrentValues.SetValues(cliente);
             _context.SaveChanges();
         }
 

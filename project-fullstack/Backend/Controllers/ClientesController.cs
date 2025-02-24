@@ -32,9 +32,6 @@ namespace Backend.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] Cliente cliente)
         {
-            if (cliente.Telefone <= 0)
-                return BadRequest("O telefone deve ser um número válido.");
-
             _service.AddCliente(cliente);
             return CreatedAtAction(nameof(Get), new { id = cliente.Id }, cliente);
         }
@@ -45,12 +42,9 @@ namespace Backend.Controllers
             var existing = _service.GetClienteById(id);
             if (existing == null) return NotFound();
 
-            if (cliente.Telefone <= 0)
-                return BadRequest("O telefone deve ser um número válido.");
-
             cliente.Id = id;
             _service.UpdateCliente(cliente);
-            return NoContent();
+            return Ok(cliente);
         }
 
         [HttpDelete("{id}")]

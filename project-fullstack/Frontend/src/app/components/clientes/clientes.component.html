@@ -1,1 +1,104 @@
-<p>clientes works!</p>
+<div class="container">
+  <div class="col-4" *ngIf="!showClientesList">
+    <form [formGroup]="clienteForm" (ngSubmit)="addCliente()">
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          id="nome"
+          placeholder="Seu Nome"
+          formControlName="nome"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="exemplo@email.com"
+          formControlName="email"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="tel"
+          class="form-control"
+          id="telefone"
+          placeholder="Telefone"
+          formControlName="telefone"
+          required
+        />
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" id="ativo" formControlName="ativo" class="form-check-input" />
+        <label for="ativo" class="form-check-label">Ativo:</label>
+      </div>
+
+      <div class="button-container">
+        <button type="submit" class="btn btn-success-light mt-4" [disabled]="clienteForm.invalid">
+          {{ editMode ? 'Salvar Alterações' : 'Adicionar Cliente' }}
+        </button>
+        <button type="button" class="btn btn-secondary mt-4 ml-2" (click)="clearForm()">
+          Limpar
+        </button>
+      </div>
+
+      <div class="button-container">
+        <button type="button" class="btn btn-info mt-4" (click)="showClientes()">
+          Mostrar Clientes
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+  <div *ngIf="showClientesList">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+        <td mat-cell *matCellDef="let cliente">{{ cliente.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome</th>
+        <td mat-cell *matCellDef="let cliente">{{ cliente.nome }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+        <td mat-cell *matCellDef="let cliente">{{ cliente.email }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="telefone">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Telefone</th>
+        <td mat-cell *matCellDef="let cliente">{{ cliente.telefone }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="ativo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Ativo</th>
+        <td mat-cell *matCellDef="let cliente">{{ cliente.ativo ? 'Sim' : 'Não' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Ações</th>
+        <td mat-cell *matCellDef="let cliente">
+          <div class="action-buttons">
+            <button mat-button (click)="editCliente(cliente)">Editar</button>
+            <button mat-button (click)="deleteCliente(cliente.id)">Excluir</button>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <button class="btn btn-secondary mt-4 voltar-cadastro" (click)="goBackToForm()">Voltar para Clientes</button>
+  </div>
+</div>
+
+<div *ngIf="!showClientesList">
+  <button class="back-button" (click)="goBack()">Voltar</button>
+</div>

@@ -44,7 +44,7 @@ namespace Backend.Controllers
 
             produto.Id = id;
             _service.UpdateProduto(produto);
-            return NoContent();
+            return Ok(produto);
         }
 
         [HttpDelete("{id}")]

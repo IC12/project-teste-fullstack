@@ -1,0 +1,156 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  @media (max-width: 768px) {
+    .col-4 {
+      width: 90%;
+    }
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+  }
+  
+  .form-check {
+    margin-top: 10px;
+  }
+  
+  button {
+    width: 100%;
+  }
+
+  .btn-success-light {
+    background-color: #90ee90;
+    color: #ffffff;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .btn-success-light:hover {
+    background-color: #7cdb7c;
+  }
+
+  button:disabled {
+    background-color: #d3d3d3;
+    color: #a9a9a9;
+    cursor: not-allowed; // Indicativo de que o botão não pode ser clicado
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .button-container .btn {
+    width: auto;
+    flex-grow: 1;
+  }
+  
+  .btn-secondary {
+    background-color: #f8f9fa;
+    color: #000;
+    border: 1px solid #ced4da;
+    padding: 12px 16px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    flex-grow: 0;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #e2e6ea;
+  }
+
+  .btn-info {
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .btn-info:hover {
+    background-color: #138496;
+  }
+
+  .btn-info {
+    margin-bottom: 40px;
+  }
+
+  .voltar-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .back-button {
+    padding: 10px 20px;
+    background-color: #1E90FF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .back-button:hover {
+    background-color: #a8d8ff;
+  }
+
+  .voltar-cadastro {
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #1E90FF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .voltar-cadastro:hover {
+    background-color: #a8d8ff;
+  }
+
+  .voltar-cadastro:focus {
+    outline: none; // Remove o contorno ao focar no botão
+  }
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    word-wrap: break-word; /* Quebra textos longos */
+  }
+  
+  .action-buttons {
+    display: flex;
+  }
+  

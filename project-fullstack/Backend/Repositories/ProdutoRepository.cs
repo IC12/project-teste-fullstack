@@ -30,7 +30,11 @@ namespace Backend.Repositories
 
         public void UpdateProduto(Produto produto)
         {
-            _context.Produtos.Update(produto);
+            var existingProduto = _context.Produtos.Find(produto.Id);
+            if (existingProduto == null)
+                throw new InvalidOperationException("Cliente não encontrado.");
+
+            _context.Entry(existingProduto).CurrentValues.SetValues(produto);
             _context.SaveChanges();
         }
 

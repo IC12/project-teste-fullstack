@@ -7,10 +7,13 @@ using Microsoft.OpenApi.Models;
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseInMemoryDatabase("ClientesDB"));
+    options.UseInMemoryDatabase("ClientesProdutosDB"));
 
 builder.Services.AddScoped<ClienteRepository>();
 builder.Services.AddScoped<ClienteService>();
+
+builder.Services.AddScoped<ProdutoRepository>();
+builder.Services.AddScoped<ProdutoService>(); 
 
 builder.Services.AddControllers();
 builder.Services.AddAuthorization();

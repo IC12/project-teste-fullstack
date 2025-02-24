@@ -12,7 +12,10 @@ namespace Backend.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Definir algumas regras de validação (boas práticas)
+            modelBuilder.Entity<Cliente>()
+                .Property(c => c.Id)
+                .ValueGeneratedOnAdd();
+
             modelBuilder.Entity<Cliente>()
                 .Property(c => c.Nome)
                 .IsRequired()
@@ -25,6 +28,10 @@ namespace Backend.Data
             modelBuilder.Entity<Cliente>()
                 .Property(c => c.Telefone)
                 .IsRequired();
+
+            modelBuilder.Entity<Produto>()
+                .Property(p => p.Id)
+                .ValueGeneratedOnAdd(); 
 
             modelBuilder.Entity<Produto>()
                 .Property(p => p.Nome)

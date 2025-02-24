@@ -27,17 +27,11 @@ namespace Backend.Services
             if (string.IsNullOrWhiteSpace(cliente.Nome) || cliente.Nome.Length < 3)
                 throw new ArgumentException("O nome do cliente deve ter no mínimo 3 caracteres.");
 
-            if (cliente.Telefone <= 0)
-                throw new ArgumentException("O número de telefone deve ser válido.");
-
             _repository.AddCliente(cliente);
         }
 
         public void UpdateCliente(Cliente cliente)
         {
-            if (cliente.Telefone <= 0)
-                throw new ArgumentException("O número de telefone deve ser válido.");
-
             _repository.UpdateCliente(cliente);
         }
 
