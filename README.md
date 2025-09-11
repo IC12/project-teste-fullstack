@@ -30,7 +30,7 @@ project-fullstack
 
 ### 3. Tecnologias Utilizadas
 - **Backend:** .NET 9.0
-- **Frontend:** Angular 10.1.6
+- **Frontend:** Angular 13.4.0
 
 ### 4. Instalação de Dependências
 - No frontend, instalar dependências:
